@@ -93,14 +93,14 @@ public class Main2Activity extends AppCompatActivity {
                 if(i == R.id.radioButtonCar){
                     carTypeT.setVisibility(View.VISIBLE);
                     carTypeE.setVisibility(View.VISIBLE);
-                    sidecarT.setVisibility(View.GONE);
-                    sideCar.setVisibility(View.GONE);
+                    sidecarT.setVisibility(View.INVISIBLE);
+                    sideCar.setVisibility(View.INVISIBLE);
 
                 }else{
                     sidecarT.setVisibility(View.VISIBLE);
                     sideCar.setVisibility(View.VISIBLE);
-                    carTypeT.setVisibility(View.GONE);
-                    carTypeE.setVisibility(View.GONE);
+                    carTypeT.setVisibility(View.INVISIBLE);
+                    carTypeE.setVisibility(View.INVISIBLE);
                 }
             }
         });

@@ -236,19 +236,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/carTypeT"
+        android:id="@+id/sideCarT"
         android:textSize="17dp"
         android:layout_marginTop="22dp"
         android:layout_marginLeft="15dp"
       android:visibility="gone"
-        android:text="Car Type"
+        android:text="Side car"
         android:layout_below="@+id/vehicleT"/>
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radiogroupSideCar"
-        android:layout_below="@+id/radiogroupVehicle"
-        android:layout_toRightOf="@id/fnameT"
+        android:layout_below="@+id/vehicleT"
+        android:layout_toRightOf="@id/sideCarT"
         android:orientation="horizontal"
         android:layout_marginTop="15dp"
         android:visibility="gone"
@@ -268,11 +268,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sideCarT"
+        android:id="@+id/carTypeT"
         android:textSize="17dp"
         android:layout_marginTop="22dp"
         android:layout_marginLeft="15dp"
-        android:text="Side Car"
+        android:text="car type"
         android:visibility="gone"
         android:layout_below="@+id/vehicleT"/>
     <EditText
@@ -282,9 +282,9 @@
         android:id="@+id/carTypeE"
         android:visibility="gone"
         android:layout_marginTop="1dp"
-        android:layout_toRightOf="@+id/fnameT"
+        android:layout_toRightOf="@+id/carTypeT"
         android:layout_marginLeft="58dp"
-        android:layout_below="@+id/radiogroupVehicle"/>
+        android:layout_below="@+id/vehicleT"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -293,16 +293,16 @@
         android:layout_marginTop="22dp"
         android:layout_marginLeft="15dp"
         android:text="Vehicle Model"
-        android:layout_below="@+id/sideCarT"/>
+        android:layout_below="@+id/carTypeT"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="vehicle Model"
         android:layout_marginTop="1dp"
-        android:layout_toRightOf="@+id/fnameT"
+        android:layout_toRightOf="@+id/modelT"
         android:layout_marginLeft="58dp"
         android:id="@+id/modelE"
-        android:layout_below="@+id/radiogroupSideCar"/>
+        android:layout_below="@+id/carTypeT"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
