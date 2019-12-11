@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main2Activity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Registration Form"
+        android:layout_marginLeft="130dp"
+        android:id="@+id/tagname"
+        android:textSize="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fnameT"
+        android:textSize="17dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="15dp"
+        android:text="Employee FirstName"
+        android:layout_below="@+id/tagname"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fnameE"
+        android:layout_below="@+id/tagname"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/fnameT"
+        android:hint="Enter firstname " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lnameT"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="17dp"
+        android:text="Employee LastName"
+        android:layout_below="@+id/fnameT"/>
+    <EditText
+        android:id="@+id/lastE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fnameE"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/fnameT"
+        android:hint="Enter lastname " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/birthT"
+        android:textSize="17dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:text="Employee Birth Year"
+        android:layout_below="@+id/lnameT"/>
+    <EditText
+        android:id="@+id/birthE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lastE"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="9dp"
+        android:layout_toRightOf="@+id/fnameT"
+        android:hint="Enter birth year " />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/salaryT"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="15dp"
+        android:text="Monthly Salary"
+        android:textSize="17dp"
+        android:layout_below="@+id/birthT"/>
+
+
+    <EditText
+        android:id="@+id/salaryE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/birthE"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="7dp"
+        android:layout_toRightOf="@+id/fnameT"
+        android:hint="Enter monthly salary " />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/occuptionRateT"
+        android:layout_marginTop="33dp"
+        android:textSize="17dp"
+        android:layout_marginLeft="15dp"
+        android:text="Occuption Rate"
+        android:layout_below="@+id/salaryT"/>
+    <EditText
+        android:id="@+id/occuptionE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/salaryE"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="9dp"
+        android:layout_toRightOf="@+id/fnameT"
+        android:hint="Enter occuptionRate " />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/idT"
+        android:textSize="17dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="15dp"
+        android:text="Employee id"
+        android:layout_below="@+id/occuptionRateT"/>
+
+    <EditText
+        android:id="@+id/idE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/occuptionE"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="9dp"
+        android:layout_toRightOf="@+id/fnameT"
+        android:hint="Enter occuptionRate " />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/employeTypeT"
+        android:textSize="17dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:text="Employee type"
+        android:layout_below="@+id/idT"/>
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/idE"
+        android:layout_toRightOf="@id/fnameT"
+        android:entries="@array/employeeType">
+
+    </Spinner>
+
+        <TextView
+            android:id="@+id/bugsT"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/employeTypeT"
+            android:text="#bugs"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numbersE"
+            android:layout_marginLeft="58dp"
+            android:layout_marginTop="9dp"
+            android:text="numbers"
+            android:visibility="gone"
+            android:layout_below="@+id/spinner"
+            android:layout_toRightOf="@id/fnameT"
+            />
+
+        <TextView
+            android:id="@+id/projectT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/employeTypeT"
+            android:text="#projects"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"/>
+        <TextView
+            android:id="@+id/clientsT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/employeTypeT"
+            android:text="#clients"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"/>
+
+        
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vehicleT"
+        android:textSize="17dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:text="Vehicle "
+        android:layout_below="@+id/bugsT"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radiogroupVehicle"
+        android:layout_below="@+id/numbersE"
+        android:layout_toRightOf="@id/fnameT"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="58dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButtonCar"
+            android:text="car"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MotorBike"
+            android:id="@+id/radioButtonMotorbike"
+
+            />
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/carTypeT"
+        android:textSize="17dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="15dp"
+      android:visibility="gone"
+        android:text="Car Type"
+        android:layout_below="@+id/vehicleT"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radiogroupSideCar"
+        android:layout_below="@+id/radiogroupVehicle"
+        android:layout_toRightOf="@id/fnameT"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:visibility="gone"
+        android:layout_marginLeft="58dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+
+            />
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sideCarT"
+        android:textSize="17dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="15dp"
+        android:text="Side Car"
+        android:visibility="gone"
+        android:layout_below="@+id/vehicleT"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="car type"
+        android:id="@+id/carTypeE"
+        android:visibility="gone"
+        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@+id/fnameT"
+        android:layout_marginLeft="58dp"
+        android:layout_below="@+id/radiogroupVehicle"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/modelT"
+        android:textSize="17dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="15dp"
+        android:text="Vehicle Model"
+        android:layout_below="@+id/sideCarT"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="vehicle Model"
+        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@+id/fnameT"
+        android:layout_marginLeft="58dp"
+        android:id="@+id/modelE"
+        android:layout_below="@+id/radiogroupSideCar"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/plateT"
+        android:textSize="17dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="15dp"
+        android:text="Plate number"
+        android:layout_below="@+id/modelT"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Plate number"
+        android:id="@+id/plateE"
+        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@+id/fnameT"
+        android:layout_marginLeft="58dp"
+        android:layout_below="@+id/modelE"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/colorT"
+        android:textSize="17dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="15dp"
+        android:text="Vehicle color"
+        android:layout_below="@+id/plateT"/>
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnercolor"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/plateE"
+        android:layout_toRightOf="@id/fnameT"
+        android:entries="@array/vehiclecolor"/>
+        <Button
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/colorT"
+            android:layout_marginLeft="150dp"
+            android:textSize="20dp"
+            android:text="Register"
+            />
+    </RelativeLayout>
+    </ScrollView>
+
+
