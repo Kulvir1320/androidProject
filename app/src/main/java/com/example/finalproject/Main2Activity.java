@@ -133,11 +133,31 @@ public class Main2Activity extends AppCompatActivity {
                Employee e;
             switch(employeeType.getSelectedItem().toString()) {
                 case "Manager":
+                    if (!occuptionRate.getText().toString().equals("")){
                 e = new Manager(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
                         Integer.parseInt(monthlySalary.getText().toString()),Double.parseDouble(occuptionRate.getText().toString()),
-                        v, Integer.parseInt(numbers.getText().toString()));
-                case "Programmer":
+                        v, Integer.parseInt(numbers.getText().toString()));}
 
+                    else{
+                        e = new Manager(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(birthyear.getText().toString()),
+                                Integer.parseInt(monthlySalary.getText().toString()), v,Integer.parseInt(numbers.getText().toString()) );
+                    }
+                case "Programmer":
+                    if (!occuptionRate.getText().toString().equals("")) {
+                        e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+                                Integer.parseInt(monthlySalary.getText().toString()), Double.parseDouble(occuptionRate.getText().toString()),
+                                v, Integer.parseInt(numbers.getText().toString()));
+                    } else
+                    {
+                        e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+                                Integer.parseInt(monthlySalary.getText().toString()),v, Integer.parseInt(numbers.getText().toString()));
+                    }
+                case "Tester":
+                    if  (!occuptionRate.getText().toString().equals("")){
+                        e = new Tester(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(birthyear.getText().toString()),
+                                Integer.parseInt(monthlySalary.getText().toString()),Double.parseDouble(occuptionRate.getText().toString()),  v,
+                                Integer.parseInt(numbers.getText().toString()));
+                    }
             }
 
             int id = vehicle.getCheckedRadioButtonId();

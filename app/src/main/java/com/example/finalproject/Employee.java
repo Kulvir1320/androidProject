@@ -63,4 +63,9 @@ public class Employee implements Serializable {
     }
 
     public static ArrayList<Employee> allEmployees = new ArrayList<>();
+
+
+    public double annualIncome(){
+     return monthlySalary *12;
+    }
 }
