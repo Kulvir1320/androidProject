@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -73,16 +74,16 @@ public class Main2Activity extends AppCompatActivity {
 
         switch(i){
             case 2: bugs.setVisibility(View.VISIBLE);
-                    projects.setVisibility(View.GONE);
-                    clients.setVisibility(View.GONE);
+                    projects.setVisibility(View.INVISIBLE);
+                    clients.setVisibility(View.INVISIBLE);
             break;
             case 3: projects.setVisibility(View.VISIBLE);
-                    bugs.setVisibility(View.GONE);
-                    clients.setVisibility(View.GONE);
+                    bugs.setVisibility(View.INVISIBLE);
+                    clients.setVisibility(View.INVISIBLE);
                     break;
             case 1: clients.setVisibility(View.VISIBLE);
-                    bugs.setVisibility(View.GONE);
-                    projects.setVisibility(View.GONE);
+                    bugs.setVisibility(View.INVISIBLE);
+                    projects.setVisibility(View.INVISIBLE);
             break;
             default: numbers.setVisibility(View.GONE);
                      bugs.setVisibility(View.GONE);
@@ -123,13 +124,33 @@ public class Main2Activity extends AppCompatActivity {
        });
 
        register.setOnClickListener(new View.OnClickListener() {
+
+           Vehicle v = new Vehicle(vehicleModel.getText().toString(), plateN.getText().toString(),color.getSelectedItem().toString(),vCat);
+
+
            @Override
            public void onClick(View view) {
+               Employee e;
+            switch(employeeType.getSelectedItem().toString()) {
+                case "Manager":
+                e = new Manager(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+                        Integer.parseInt(monthlySalary.getText().toString()),Double.parseDouble(occuptionRate.getText().toString()),
+                        v, Integer.parseInt(numbers.getText().toString()));
+                case "Programmer":
+
+            }
+
+            int id = vehicle.getCheckedRadioButtonId();
+
+                    switch(id){
+
+                        case R.id.radioButtonCar:
 
 
-            Vehicle v = new Vehicle(vehicleModel.getText().toString(), plateN.getText().toString(),color.getSelectedItem().toString(),vCat);
 
-            Employee e;
+            }
+
+
             if (!occuptionRate.getText().toString().equals("")){
                  e = new Employee(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
                Integer.parseInt(monthlySalary.getText().toString()), Double.parseDouble(occuptionRate.getText().toString()), v);}
@@ -141,7 +162,9 @@ public class Main2Activity extends AppCompatActivity {
             Employee.allEmployees.add(e);
 
             Toast.makeText(Main2Activity.this, "Registration is successful.", Toast.LENGTH_SHORT).show();
-               
+               Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+               intent.putExtra("employeedata",e);
+               startActivity(intent);
 
            }
        });

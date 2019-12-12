@@ -17,12 +17,15 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.listView);
         Button add= findViewById(R.id.addbtn);
+        Intent intent = getIntent();
+        Employee newE = (Employee) intent.getSerializableExtra("employeedata");
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class );
                 startActivity(intent);
+
             }
         });
     }

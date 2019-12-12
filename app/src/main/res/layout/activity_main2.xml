@@ -35,7 +35,7 @@
         android:layout_marginLeft="58dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/fnameT"
-        android:hint="Enter firstname " />
+        android:hint=" firstname " />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
         android:layout_marginLeft="58dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/fnameT"
-        android:hint="Enter lastname " />
+        android:hint=" Lastname " />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
         android:layout_marginLeft="58dp"
         android:layout_marginTop="9dp"
         android:layout_toRightOf="@+id/fnameT"
-        android:hint="Enter birth year "
+        android:hint=" Birth year "
         android:inputType="number"/>
 
 
@@ -98,7 +98,7 @@
         android:layout_marginTop="7dp"
         android:layout_toRightOf="@+id/fnameT"
         android:inputType="number"
-        android:hint="Enter monthly salary " />
+        android:hint=" Monthly salary " />
 
 
     <TextView
@@ -118,7 +118,7 @@
         android:layout_marginLeft="58dp"
         android:layout_marginTop="9dp"
         android:layout_toRightOf="@+id/fnameT"
-        android:hint="Enter occuptionRate "
+        android:hint=" OccuptionRate "
         android:inputType="numberDecimal"/>
 
 
@@ -140,7 +140,7 @@
         android:layout_marginLeft="58dp"
         android:layout_marginTop="9dp"
         android:layout_toRightOf="@+id/fnameT"
-        android:hint="Enter occuptionRate " />
+        android:hint=" employeeId " />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -190,11 +190,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/employeTypeT"
             android:text="#projects"
+            android:textSize="17dp"
             android:visibility="gone"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="15dp"/>
         <TextView
             android:id="@+id/clientsT"
+            android:textSize="17dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/employeTypeT"
@@ -209,7 +211,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/vehicleT"
         android:textSize="17dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="15dp"
         android:text="Vehicle "
         android:layout_below="@+id/bugsT"/>
@@ -251,7 +253,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/radiogroupSideCar"
         android:layout_below="@+id/vehicleT"
-        android:layout_toRightOf="@id/sideCarT"
+        android:layout_toRightOf="@id/fnameT"
         android:orientation="horizontal"
         android:layout_marginTop="15dp"
         android:visibility="gone"
@@ -284,8 +286,8 @@
         android:hint="car type"
         android:id="@+id/carTypeE"
         android:visibility="gone"
-        android:layout_marginTop="1dp"
-        android:layout_toRightOf="@+id/carTypeT"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/fnameT"
         android:layout_marginLeft="58dp"
         android:layout_below="@+id/vehicleT"/>
     <TextView
@@ -301,8 +303,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="vehicle Model"
-        android:layout_marginTop="1dp"
-        android:layout_toRightOf="@+id/modelT"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/fnameT"
         android:layout_marginLeft="58dp"
         android:id="@+id/modelE"
         android:layout_below="@+id/carTypeT"/>
