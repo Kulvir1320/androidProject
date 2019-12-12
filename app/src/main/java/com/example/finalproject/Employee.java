@@ -9,10 +9,11 @@ public class Employee {
     private double rate;
     private Vehicle vehicle;
 
-    public Employee(String name, int age, int birthYear, int monthlySalary, double rate, Vehicle vehicle) {
+    public Employee(String name, int birthYear, int monthlySalary, double rate, Vehicle vehicle) {
         this.name = name;
-        this.age = 2019 - birthYear;
+
         this.birthYear = birthYear;
+        this.age = getAge();
         this.monthlySalary = monthlySalary;
         this.vehicle = vehicle;
 
@@ -31,10 +32,10 @@ public class Employee {
     }
 
 
-    public Employee(String name, int age, int birthYear, int monthlySalary, Vehicle vehicle) {
+    public Employee(String name, int birthYear, int monthlySalary, Vehicle vehicle) {
         this.name = name;
-        this.age = 2019 - birthYear;
         this.birthYear = birthYear;
+        this.age = getAge();
         this.monthlySalary = monthlySalary;
         this.rate = 100.00;
         this.vehicle = vehicle;
@@ -45,7 +46,7 @@ public class Employee {
     }
 
     public int getAge() {
-        return age;
+        return 2019 - birthYear;
     }
 
     public int getBirthYear() {

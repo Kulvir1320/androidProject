@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
     EditText fname;
@@ -32,6 +34,7 @@ public class Main2Activity extends AppCompatActivity {
     TextView clients;
     EditText numbers;
     Button register;
+    String vCat;
 
 
 
@@ -69,15 +72,15 @@ public class Main2Activity extends AppCompatActivity {
 
 
         switch(i){
-            case 1: bugs.setVisibility(View.VISIBLE);
+            case 2: bugs.setVisibility(View.VISIBLE);
                     projects.setVisibility(View.GONE);
                     clients.setVisibility(View.GONE);
             break;
-            case 2: projects.setVisibility(View.VISIBLE);
+            case 3: projects.setVisibility(View.VISIBLE);
                     bugs.setVisibility(View.GONE);
                     clients.setVisibility(View.GONE);
                     break;
-            case 3: clients.setVisibility(View.VISIBLE);
+            case 1: clients.setVisibility(View.VISIBLE);
                     bugs.setVisibility(View.GONE);
                     projects.setVisibility(View.GONE);
             break;
@@ -90,11 +93,16 @@ public class Main2Activity extends AppCompatActivity {
         vehicle.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+                RadioButton radioButton = (RadioButton) findViewById(i);
+                vCat = radioButton.getText().toString();
+
                 if(i == R.id.radioButtonCar){
                     carTypeT.setVisibility(View.VISIBLE);
                     carTypeE.setVisibility(View.VISIBLE);
                     sidecarT.setVisibility(View.INVISIBLE);
                     sideCar.setVisibility(View.INVISIBLE);
+
 
                 }else{
                     sidecarT.setVisibility(View.VISIBLE);
@@ -109,6 +117,31 @@ public class Main2Activity extends AppCompatActivity {
 
            @Override
            public void onNothingSelected(AdapterView<?> adapterView) {
+
+
+           }
+       });
+
+       register.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+
+            Vehicle v = new Vehicle(vehicleModel.getText().toString(), plateN.getText().toString(),color.getSelectedItem().toString(),vCat);
+
+            Employee e;
+            if (!occuptionRate.getText().toString().equals("")){
+                 e = new Employee(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+               Integer.parseInt(monthlySalary.getText().toString()), Double.parseDouble(occuptionRate.getText().toString()), v);}
+            else{
+                 e = new Employee(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+                           Integer.parseInt(monthlySalary.getText().toString()), v);
+               }
+
+            Employee.allEmployees.add(e);
+
+            Toast.makeText(Main2Activity.this, "Registration is successful.", Toast.LENGTH_SHORT).show();
+               
 
            }
        });

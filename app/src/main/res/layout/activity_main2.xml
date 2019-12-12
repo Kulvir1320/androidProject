@@ -73,7 +73,8 @@
         android:layout_marginLeft="58dp"
         android:layout_marginTop="9dp"
         android:layout_toRightOf="@+id/fnameT"
-        android:hint="Enter birth year " />
+        android:hint="Enter birth year "
+        android:inputType="number"/>
 
 
 
@@ -96,6 +97,7 @@
         android:layout_marginLeft="58dp"
         android:layout_marginTop="7dp"
         android:layout_toRightOf="@+id/fnameT"
+        android:inputType="number"
         android:hint="Enter monthly salary " />
 
 
@@ -116,7 +118,8 @@
         android:layout_marginLeft="58dp"
         android:layout_marginTop="9dp"
         android:layout_toRightOf="@+id/fnameT"
-        android:hint="Enter occuptionRate " />
+        android:hint="Enter occuptionRate "
+        android:inputType="numberDecimal"/>
 
 
     <TextView
