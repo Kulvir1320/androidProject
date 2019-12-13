@@ -142,6 +142,7 @@ public class Main2Activity extends AppCompatActivity {
                         e = new Manager(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(birthyear.getText().toString()),
                                 Integer.parseInt(monthlySalary.getText().toString()), v,Integer.parseInt(numbers.getText().toString()) );
                     }
+                    break;
                 case "Programmer":
                     if (!occuptionRate.getText().toString().equals("")) {
                         e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
@@ -152,12 +153,18 @@ public class Main2Activity extends AppCompatActivity {
                         e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
                                 Integer.parseInt(monthlySalary.getText().toString()),v, Integer.parseInt(numbers.getText().toString()));
                     }
+                    break;
                 case "Tester":
                     if  (!occuptionRate.getText().toString().equals("")){
                         e = new Tester(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(birthyear.getText().toString()),
                                 Integer.parseInt(monthlySalary.getText().toString()),Double.parseDouble(occuptionRate.getText().toString()),  v,
                                 Integer.parseInt(numbers.getText().toString()));
+                    } else{
+                        e = new Tester(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+                                Integer.parseInt(monthlySalary.getText().toString()),  v,  Integer.parseInt(numbers.getText().toString()));
                     }
+                    break;
+
             }
 
             int id = vehicle.getCheckedRadioButtonId();
@@ -166,8 +173,23 @@ public class Main2Activity extends AppCompatActivity {
 
                         case R.id.radioButtonCar:
 
-
-
+                            v = new Car(vehicleModel.getText().toString(),  plateN.getText().toString(), color.getSelectedItem().toString(),vCat ,carTypeE.getText().toString());
+                            break;
+                        case R.id.radioButtonMotorbike:
+                            Boolean isSidecar = false;
+                            switch (sideCar.getCheckedRadioButtonId()){
+                                case R.id.sideCarYes:
+                                    isSidecar = true;
+                                    break;
+                                case R.id.sideCarNo:
+                                    isSidecar = true;
+                                    default:
+                                        break;
+                                     }
+                            v = new MotorBike(vehicleModel.getText().toString(),  plateN.getText().toString(), color.getSelectedItem().toString(), vCat,isSidecar);
+                            break;
+                            default:
+                                break;
             }
 
 
