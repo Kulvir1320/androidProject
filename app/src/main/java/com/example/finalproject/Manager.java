@@ -16,6 +16,6 @@ public class Manager extends Employee {
 
     @Override
     public double annualIncome() {
-        return super.annualIncome() + (nbClients + GAIN_FACTOR_CLIENT);
+        return super.annualIncome() + (nbClients * GAIN_FACTOR_CLIENT);
     }
 }

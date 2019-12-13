@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -22,15 +23,33 @@ public class MainActivity extends AppCompatActivity {
         Button add= findViewById(R.id.addbtn);
 
         ArrayList<String> list = new ArrayList<>();
+        //Employee.allEmployees.size(
+        for(int i = 0; i< 10; i++){
+       // for(int i =0; i<Employee.allEmployees.size(); i++){
+           // list.add(Employee.allEmployees.get(i).description());
+            list.add(String.valueOf(i));
 
-        for(int i = 0; i< Employee.allEmployees.size(); i++){
-
-            list.add(Employee.allEmployees.get(i).description());
 
         }
-
+           // listView.getOnItemSelectedListener(sele)
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivity.this,descriptionActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

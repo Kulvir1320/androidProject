@@ -16,6 +16,6 @@ public class Programmer extends Employee {
 
     @Override
     public double annualIncome() {
-        return super.annualIncome() + (nbProjects + GAIN_FACTOR_CILENT);
+        return super.annualIncome() + (nbProjects * GAIN_FACTOR_CILENT);
     }
 }

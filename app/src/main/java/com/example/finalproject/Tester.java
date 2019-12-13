@@ -16,6 +16,6 @@ public class Tester extends Employee {
 
     @Override
     public double annualIncome() {
-        return super.annualIncome() +(nbBugs+GAIN_FACTOR_PROJECTS);
+        return super.annualIncome() +(nbBugs * GAIN_FACTOR_PROJECTS);
     }
 }
