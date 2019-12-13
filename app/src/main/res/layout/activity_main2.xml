@@ -139,6 +139,7 @@
         android:layout_below="@+id/occuptionE"
         android:layout_marginLeft="58dp"
         android:layout_marginTop="9dp"
+        android:inputType="number"
         android:layout_toRightOf="@+id/fnameT"
         android:hint=" employeeId " />
     <TextView

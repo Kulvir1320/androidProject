@@ -6,13 +6,13 @@ import java.util.ArrayList;
 public class Employee implements Serializable {
 
     private String name;
-    private int age , birthYear, monthlySalary;
+    private int age , id, birthYear, monthlySalary;
     private double rate;
     private Vehicle vehicle;
 
-    public Employee(String name, int birthYear, int monthlySalary, double rate, Vehicle vehicle) {
+    public Employee(String name,int id, int birthYear, int monthlySalary, double rate, Vehicle vehicle) {
         this.name = name;
-
+        this.id = id;
         this.birthYear = birthYear;
         this.age = getAge();
         this.monthlySalary = monthlySalary;
@@ -33,7 +33,7 @@ public class Employee implements Serializable {
     }
 
 
-    public Employee(String name, int birthYear, int monthlySalary, Vehicle vehicle) {
+    public Employee(String name,int id, int birthYear, int monthlySalary, Vehicle vehicle) {
         this.name = name;
         this.birthYear = birthYear;
         this.age = getAge();
@@ -68,4 +68,12 @@ public class Employee implements Serializable {
     public double annualIncome(){
      return monthlySalary *12;
     }
+
+    public String description(){
+     return "Name:" + name + "\n" + "Id :  " + id;
+    }
+
+//    public String allDescription(){
+//        return "Name:" + name + ",a" +
+//    }
 }

@@ -4,13 +4,13 @@ public class Programmer extends Employee {
     private int nbProjects;
     private final int GAIN_FACTOR_CILENT = 10;
 
-    public Programmer(String name, int birthYear, int monthlySalary, double rate, Vehicle vehicle, int nbProjects) {
-        super(name, birthYear, monthlySalary, rate, vehicle);
+    public Programmer(String name, int id, int birthYear, int monthlySalary, double rate, Vehicle vehicle, int nbProjects) {
+        super(name, id, birthYear, monthlySalary, rate, vehicle);
         this.nbProjects = nbProjects;
     }
 
-    public Programmer(String name, int birthYear, int monthlySalary, Vehicle vehicle, int nbProjects) {
-        super(name, birthYear, monthlySalary, vehicle);
+    public Programmer(String name, int id, int birthYear, int monthlySalary, Vehicle vehicle, int nbProjects) {
+        super(name, id, birthYear, monthlySalary, vehicle);
         this.nbProjects = nbProjects;
     }
 

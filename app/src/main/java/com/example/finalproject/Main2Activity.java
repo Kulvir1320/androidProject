@@ -20,7 +20,7 @@ public class Main2Activity extends AppCompatActivity {
     EditText birthyear;
     EditText monthlySalary;
     EditText occuptionRate;
-    EditText id;
+    EditText eid;
     Spinner employeeType;
     RadioGroup vehicle;
     EditText carTypeE;
@@ -48,7 +48,7 @@ public class Main2Activity extends AppCompatActivity {
        birthyear = findViewById(R.id.birthE);
        monthlySalary = findViewById(R.id.salaryE);
        occuptionRate = findViewById(R.id.occuptionE);
-       id = findViewById(R.id.idE);
+       eid = findViewById(R.id.idE);
        employeeType = findViewById(R.id.spinner);
        vehicle = findViewById(R.id.radiogroupVehicle);
        carTypeE = findViewById(R.id.carTypeE);
@@ -125,83 +125,81 @@ public class Main2Activity extends AppCompatActivity {
 
        register.setOnClickListener(new View.OnClickListener() {
 
-           Vehicle v = new Vehicle(vehicleModel.getText().toString(), plateN.getText().toString(),color.getSelectedItem().toString(),vCat);
-
+           Vehicle v = new Vehicle(vehicleModel.getText().toString(), plateN.getText().toString(),color.getSelectedItem().toString());
+           Employee e;
 
            @Override
            public void onClick(View view) {
-               Employee e;
-            switch(employeeType.getSelectedItem().toString()) {
+
+               int id = vehicle.getCheckedRadioButtonId();
+
+               switch(id){
+
+                   case R.id.radioButtonCar:
+                       v = new Car(vehicleModel.getText().toString(),  plateN.getText().toString(),color.getSelectedItem().toString(), carTypeE.getText().toString());
+                       break;
+                   case R.id.radioButtonMotorbike:
+                       Boolean isSidecar = false;
+                       switch (sideCar.getCheckedRadioButtonId()){
+                           case R.id.sideCarYes:
+                               isSidecar = true;
+                               break;
+                           case R.id.sideCarNo:
+                               isSidecar = true;
+                           default:
+                               break;
+                       }
+                       v = new MotorBike(vehicleModel.getText().toString(),  plateN.getText().toString(), color.getSelectedItem().toString(), isSidecar);
+                       break;
+                   default:
+                       break;
+               }
+
+
+
+               switch(employeeType.getSelectedItem().toString()) {
                 case "Manager":
                     if (!occuptionRate.getText().toString().equals("")){
-                e = new Manager(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+                e = new Manager(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),
+                        Integer.parseInt(birthyear.getText().toString()),
                         Integer.parseInt(monthlySalary.getText().toString()),Double.parseDouble(occuptionRate.getText().toString()),
                         v, Integer.parseInt(numbers.getText().toString()));}
 
                     else{
-                        e = new Manager(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(birthyear.getText().toString()),
+                        e = new Manager(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),
+                                Integer.parseInt(birthyear.getText().toString()),
                                 Integer.parseInt(monthlySalary.getText().toString()), v,Integer.parseInt(numbers.getText().toString()) );
                     }
                     break;
                 case "Programmer":
                     if (!occuptionRate.getText().toString().equals("")) {
-                        e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+                        e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),
+                                Integer.parseInt(birthyear.getText().toString()),
                                 Integer.parseInt(monthlySalary.getText().toString()), Double.parseDouble(occuptionRate.getText().toString()),
                                 v, Integer.parseInt(numbers.getText().toString()));
                     } else
                     {
-                        e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+                        e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),
+                                Integer.parseInt(birthyear.getText().toString()),
                                 Integer.parseInt(monthlySalary.getText().toString()),v, Integer.parseInt(numbers.getText().toString()));
                     }
                     break;
                 case "Tester":
                     if  (!occuptionRate.getText().toString().equals("")){
-                        e = new Tester(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(birthyear.getText().toString()),
+                        e = new Tester(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),Integer.parseInt(birthyear.getText().toString()),
                                 Integer.parseInt(monthlySalary.getText().toString()),Double.parseDouble(occuptionRate.getText().toString()),  v,
                                 Integer.parseInt(numbers.getText().toString()));
                     } else{
-                        e = new Tester(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
+                        e = new Tester(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()), Integer.parseInt(birthyear.getText().toString()),
                                 Integer.parseInt(monthlySalary.getText().toString()),  v,  Integer.parseInt(numbers.getText().toString()));
                     }
                     break;
 
             }
-
-            int id = vehicle.getCheckedRadioButtonId();
-
-                    switch(id){
-
-                        case R.id.radioButtonCar:
-
-                            v = new Car(vehicleModel.getText().toString(),  plateN.getText().toString(), color.getSelectedItem().toString(),vCat ,carTypeE.getText().toString());
-                            break;
-                        case R.id.radioButtonMotorbike:
-                            Boolean isSidecar = false;
-                            switch (sideCar.getCheckedRadioButtonId()){
-                                case R.id.sideCarYes:
-                                    isSidecar = true;
-                                    break;
-                                case R.id.sideCarNo:
-                                    isSidecar = true;
-                                    default:
-                                        break;
-                                     }
-                            v = new MotorBike(vehicleModel.getText().toString(),  plateN.getText().toString(), color.getSelectedItem().toString(), vCat,isSidecar);
-                            break;
-                            default:
-                                break;
-            }
+               Employee.allEmployees.add(e);
 
 
-            if (!occuptionRate.getText().toString().equals("")){
-                 e = new Employee(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
-               Integer.parseInt(monthlySalary.getText().toString()), Double.parseDouble(occuptionRate.getText().toString()), v);}
-            else{
-                 e = new Employee(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(birthyear.getText().toString()),
-                           Integer.parseInt(monthlySalary.getText().toString()), v);
-               }
 
-            Employee.allEmployees.add(e);
 
             Toast.makeText(Main2Activity.this, "Registration is successful.", Toast.LENGTH_SHORT).show();
                Intent intent = new Intent(Main2Activity.this, MainActivity.class);

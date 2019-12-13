@@ -2,13 +2,13 @@ package com.example.finalproject;
 
 public class Vehicle {
 
-    private String make, plate, color, category;
+    private String make, plate, color;
 
-    public Vehicle(String make, String plate, String color, String category) {
+    public Vehicle(String make, String plate, String color) {
         this.make = make;
         this.plate = plate;
         this.color = color;
-        this.category = category;
+
     }
 
     public String getMake() {
@@ -23,7 +23,4 @@ public class Vehicle {
         return color;
     }
 
-    public String getCategory() {
-        return category;
-    }
 }

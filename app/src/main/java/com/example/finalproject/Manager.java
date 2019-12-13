@@ -4,13 +4,13 @@ public class Manager extends Employee {
     private int nbClients;
     private final int GAIN_FACTOR_CLIENT = 500;
 
-    public Manager(String name, int birthYear, int monthlySalary, double rate, Vehicle vehicle, int nbClients) {
-        super(name, birthYear, monthlySalary, rate, vehicle);
+    public Manager(String name, int id, int birthYear, int monthlySalary, double rate, Vehicle vehicle, int nbClients) {
+        super(name, id, birthYear, monthlySalary, rate, vehicle);
         this.nbClients = nbClients;
     }
 
-    public Manager(String name, int birthYear, int monthlySalary, Vehicle vehicle, int nbClients) {
-        super(name, birthYear, monthlySalary, vehicle);
+    public Manager(String name, int id, int birthYear, int monthlySalary, Vehicle vehicle, int nbClients) {
+        super(name, id, birthYear, monthlySalary, vehicle);
         this.nbClients = nbClients;
     }
 
