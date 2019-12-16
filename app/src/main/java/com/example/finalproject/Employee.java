@@ -1,9 +1,9 @@
 package com.example.finalproject;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 
-public class Employee implements Serializable {
+public class Employee {
 
     private String name;
     private int age , id, birthYear, monthlySalary;
@@ -66,14 +66,20 @@ public class Employee implements Serializable {
 
 
     public double annualIncome(){
-     return monthlySalary *12;
+     return monthlySalary *12 * rate;
     }
 
     public String description(){
      return "Name:" + name + "\n" + "Id :  " + id;
     }
 
-//    public String allDescription(){
-//        return "Name:" + name + ",a" +
-//    }
+   public String allDescription() {
+      return "Name:" + name ;
+   }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+
 }

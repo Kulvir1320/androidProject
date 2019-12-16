@@ -18,4 +18,19 @@ public class Tester extends Employee {
     public double annualIncome() {
         return super.annualIncome() +(nbBugs * GAIN_FACTOR_PROJECTS);
     }
+
+
+    @Override
+    public String allDescription() {
+
+        String des = super.allDescription()+", a Tester \n" + " Age:" + super.getAge() + "\n";
+        des += "Employee has a" + super.getVehicle().details() + "\n" + "Occupation rate: " + super.getRate()
+                + "%n" + "Annual income : " + "$" +super.annualIncome() +"\n"+ "He/She has brought "+
+                nbBugs +"new clients";
+        return des;
+
+
+
+
+    }
 }

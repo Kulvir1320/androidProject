@@ -24,31 +24,29 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> list = new ArrayList<>();
         //Employee.allEmployees.size(
-        for(int i = 0; i< 10; i++){
-       // for(int i =0; i<Employee.allEmployees.size(); i++){
-           // list.add(Employee.allEmployees.get(i).description());
-            list.add(String.valueOf(i));
+        //for(int i = 0; i< 10; i++){
+        for(int i =0; i<Employee.allEmployees.size(); i++){
+           list.add(Employee.allEmployees.get(i).description());
+           //list.add(String.valueOf(i));
 
 
         }
-           // listView.getOnItemSelectedListener(sele)
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(MainActivity.this,descriptionActivity.class);
-                startActivity(intent);
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
+                intent.putExtra("id",i);
+               startActivity(intent);
             }
         });
-
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

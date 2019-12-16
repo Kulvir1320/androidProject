@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -69,50 +70,54 @@ public class Main2Activity extends AppCompatActivity {
        employeeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        numbers.setVisibility(View.VISIBLE);
+               numbers.setVisibility(View.VISIBLE);
 
 
-        switch(i){
-            case 2: bugs.setVisibility(View.VISIBLE);
-                    projects.setVisibility(View.INVISIBLE);
-                    clients.setVisibility(View.INVISIBLE);
-            break;
-            case 3: projects.setVisibility(View.VISIBLE);
-                    bugs.setVisibility(View.INVISIBLE);
-                    clients.setVisibility(View.INVISIBLE);
-                    break;
-            case 1: clients.setVisibility(View.VISIBLE);
-                    bugs.setVisibility(View.INVISIBLE);
-                    projects.setVisibility(View.INVISIBLE);
-            break;
-            default: numbers.setVisibility(View.GONE);
-                     bugs.setVisibility(View.GONE);
-                     projects.setVisibility(View.GONE);
-                     clients.setVisibility(View.GONE);
-        }
+               switch (i) {
+                   case 2:
+                       bugs.setVisibility(View.VISIBLE);
+                       projects.setVisibility(View.INVISIBLE);
+                       clients.setVisibility(View.INVISIBLE);
+                       break;
+                   case 3:
+                       projects.setVisibility(View.VISIBLE);
+                       bugs.setVisibility(View.INVISIBLE);
+                       clients.setVisibility(View.INVISIBLE);
+                       break;
+                   case 1:
+                       clients.setVisibility(View.VISIBLE);
+                       bugs.setVisibility(View.INVISIBLE);
+                       projects.setVisibility(View.INVISIBLE);
+                       break;
+                   default:
+                       numbers.setVisibility(View.GONE);
+                       bugs.setVisibility(View.GONE);
+                       projects.setVisibility(View.GONE);
+                       clients.setVisibility(View.GONE);
+               }
 
-        vehicle.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+               vehicle.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                   @Override
+                   public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
-                RadioButton radioButton = (RadioButton) findViewById(i);
-                vCat = radioButton.getText().toString();
+                       RadioButton radioButton = (RadioButton) findViewById(i);
+                       vCat = radioButton.getText().toString();
 
-                if(i == R.id.radioButtonCar){
-                    carTypeT.setVisibility(View.VISIBLE);
-                    carTypeE.setVisibility(View.VISIBLE);
-                    sidecarT.setVisibility(View.INVISIBLE);
-                    sideCar.setVisibility(View.INVISIBLE);
+                       if (i == R.id.radioButtonCar) {
+                           carTypeT.setVisibility(View.VISIBLE);
+                           carTypeE.setVisibility(View.VISIBLE);
+                           sidecarT.setVisibility(View.INVISIBLE);
+                           sideCar.setVisibility(View.INVISIBLE);
 
 
-                }else{
-                    sidecarT.setVisibility(View.VISIBLE);
-                    sideCar.setVisibility(View.VISIBLE);
-                    carTypeT.setVisibility(View.INVISIBLE);
-                    carTypeE.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
+                       } else {
+                           sidecarT.setVisibility(View.VISIBLE);
+                           sideCar.setVisibility(View.VISIBLE);
+                           carTypeT.setVisibility(View.INVISIBLE);
+                           carTypeE.setVisibility(View.INVISIBLE);
+                       }
+                   }
+               });
 
            }
 
@@ -130,84 +135,97 @@ public class Main2Activity extends AppCompatActivity {
 
            @Override
            public void onClick(View view) {
+//               if (fname.getText().toString().isEmpty() & !lname.getText().toString().isEmpty() & birthyear.getText().toString().isEmpty()
+//                       & monthlySalary.getText().toString().isEmpty() & occuptionRate.getText().toString().isEmpty() & eid.getText().toString().isEmpty()
+//                       & employeeType.getSelectedItem().toString().isEmpty() & numbers.getText().toString().isEmpty()) {
+                   int id = vehicle.getCheckedRadioButtonId();
 
-               int id = vehicle.getCheckedRadioButtonId();
+                   switch (id) {
 
-               switch(id){
+                       case R.id.radioButtonCar:
+                           v = new Car(vehicleModel.getText().toString(), plateN.getText().toString(), color.getSelectedItem().toString(), carTypeE.getText().toString());
+                           System.out.println("car");
+                           Log.i("car", "onClick: car");
+                           break;
+                       case R.id.radioButtonMotorbike:
+                           Boolean isSidecar = false;
+                           switch (sideCar.getCheckedRadioButtonId()) {
+                               case R.id.sideCarYes:
+                                   isSidecar = true;
+                                   System.out.println("Sidecar yes");
+                                   Log.i("sidecaryes", "onClick: sidecaryes");
+                                   break;
+                               case R.id.sideCarNo:
+                                   isSidecar = true;
+                                   System.out.println("sidecar no");
+                                   Log.i("sidecar", "onClick: sidecarno");
+                               default:
+                                   break;
+                           }
+                           v = new MotorBike(vehicleModel.getText().toString(), plateN.getText().toString(), color.getSelectedItem().toString(), isSidecar);
+                           System.out.println("motorBike");
+                           Log.i("motorbike", "onClick: motorbike");
+                           break;
+                       default:
+                           break;
+                   }
 
-                   case R.id.radioButtonCar:
-                       v = new Car(vehicleModel.getText().toString(),  plateN.getText().toString(),color.getSelectedItem().toString(), carTypeE.getText().toString());
-                       break;
-                   case R.id.radioButtonMotorbike:
-                       Boolean isSidecar = false;
-                       switch (sideCar.getCheckedRadioButtonId()){
-                           case R.id.sideCarYes:
-                               isSidecar = true;
-                               break;
-                           case R.id.sideCarNo:
-                               isSidecar = true;
-                           default:
-                               break;
-                       }
-                       v = new MotorBike(vehicleModel.getText().toString(),  plateN.getText().toString(), color.getSelectedItem().toString(), isSidecar);
-                       break;
-                   default:
-                       break;
+
+                   switch (employeeType.getSelectedItem().toString()) {
+                       case "Manager":
+                           if (!occuptionRate.getText().toString().equals("")) {
+                               e = new Manager(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(eid.getText().toString()),
+                                       Integer.parseInt(birthyear.getText().toString()),
+                                       Integer.parseInt(monthlySalary.getText().toString()), Double.parseDouble(occuptionRate.getText().toString()),
+                                       v, Integer.parseInt(numbers.getText().toString()));
+                           } else {
+                               e = new Manager(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(eid.getText().toString()),
+                                       Integer.parseInt(birthyear.getText().toString()),
+                                       Integer.parseInt(monthlySalary.getText().toString()), v, Integer.parseInt(numbers.getText().toString()));
+
+                           }
+                           System.out.println("manager");
+                           Log.i("manager", "onClick: manager ");
+                           break;
+                       case "Programmer":
+                           if (!occuptionRate.getText().toString().equals("")) {
+                               e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(eid.getText().toString()),
+                                       Integer.parseInt(birthyear.getText().toString()),
+                                       Integer.parseInt(monthlySalary.getText().toString()), Double.parseDouble(occuptionRate.getText().toString()),
+                                       v, Integer.parseInt(numbers.getText().toString()));
+                           } else {
+                               e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(eid.getText().toString()),
+                                       Integer.parseInt(birthyear.getText().toString()),
+                                       Integer.parseInt(monthlySalary.getText().toString()), v, Integer.parseInt(numbers.getText().toString()));
+
+                           }
+                           System.out.println("programmer");
+                           Log.i("programmer", "onClick: programmer");
+                           break;
+                       case "Tester":
+                           if (!occuptionRate.getText().toString().equals("")) {
+                               e = new Tester(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(eid.getText().toString()), Integer.parseInt(birthyear.getText().toString()),
+                                       Integer.parseInt(monthlySalary.getText().toString()), Double.parseDouble(occuptionRate.getText().toString()), v,
+                                       Integer.parseInt(numbers.getText().toString()));
+                           } else {
+                               e = new Tester(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(eid.getText().toString()), Integer.parseInt(birthyear.getText().toString()),
+                                       Integer.parseInt(monthlySalary.getText().toString()), v, Integer.parseInt(numbers.getText().toString()));
+                           }
+                           System.out.println("tester");
+                           Log.i("tester", "onClick: tester");
+
+
+
+                           break;
+
+                   }
+
+                   Employee.allEmployees.add(e);
+                   Toast.makeText(Main2Activity.this, "Registration is successful.", Toast.LENGTH_SHORT).show();
+                   Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+                   startActivity(intent);
+                   // }
                }
+           });
 
-
-
-               switch(employeeType.getSelectedItem().toString()) {
-                case "Manager":
-                    if (!occuptionRate.getText().toString().equals("")){
-                e = new Manager(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),
-                        Integer.parseInt(birthyear.getText().toString()),
-                        Integer.parseInt(monthlySalary.getText().toString()),Double.parseDouble(occuptionRate.getText().toString()),
-                        v, Integer.parseInt(numbers.getText().toString()));}
-
-                    else{
-                        e = new Manager(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),
-                                Integer.parseInt(birthyear.getText().toString()),
-                                Integer.parseInt(monthlySalary.getText().toString()), v,Integer.parseInt(numbers.getText().toString()) );
-                    }
-                    break;
-                case "Programmer":
-                    if (!occuptionRate.getText().toString().equals("")) {
-                        e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),
-                                Integer.parseInt(birthyear.getText().toString()),
-                                Integer.parseInt(monthlySalary.getText().toString()), Double.parseDouble(occuptionRate.getText().toString()),
-                                v, Integer.parseInt(numbers.getText().toString()));
-                    } else
-                    {
-                        e = new Programmer(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),
-                                Integer.parseInt(birthyear.getText().toString()),
-                                Integer.parseInt(monthlySalary.getText().toString()),v, Integer.parseInt(numbers.getText().toString()));
-                    }
-                    break;
-                case "Tester":
-                    if  (!occuptionRate.getText().toString().equals("")){
-                        e = new Tester(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()),Integer.parseInt(birthyear.getText().toString()),
-                                Integer.parseInt(monthlySalary.getText().toString()),Double.parseDouble(occuptionRate.getText().toString()),  v,
-                                Integer.parseInt(numbers.getText().toString()));
-                    } else{
-                        e = new Tester(fname.getText().toString() + " " + lname.getText().toString(),Integer.parseInt(eid.getText().toString()), Integer.parseInt(birthyear.getText().toString()),
-                                Integer.parseInt(monthlySalary.getText().toString()),  v,  Integer.parseInt(numbers.getText().toString()));
-                    }
-                    break;
-
-            }
-               Employee.allEmployees.add(e);
-
-
-
-
-            Toast.makeText(Main2Activity.this, "Registration is successful.", Toast.LENGTH_SHORT).show();
-               Intent intent = new Intent(Main2Activity.this, MainActivity.class);
-               intent.putExtra("employeedata",e);
-               startActivity(intent);
-
-           }
-       });
-
-    }
-}
+    }}

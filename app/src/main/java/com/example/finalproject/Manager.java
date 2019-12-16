@@ -18,4 +18,18 @@ public class Manager extends Employee {
     public double annualIncome() {
         return super.annualIncome() + (nbClients * GAIN_FACTOR_CLIENT);
     }
+
+    @Override
+    public String allDescription() {
+
+        String des = super.allDescription()+", a Manager \n" + " Age:" + super.getAge() + "\n";
+        des += "Employee has a" + super.getVehicle().details() + "\n" + "Occupation rate: " + super.getRate()
+                + "%n" + "Annual income : " + "$" +super.annualIncome() +"\n"+ "He/She has brought "+
+                nbClients +"new clients";
+        return des;
+
+
+
+
+    }
 }

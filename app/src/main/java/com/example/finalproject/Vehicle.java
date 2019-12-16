@@ -23,4 +23,12 @@ public class Vehicle {
         return color;
     }
 
+    public  String details(){
+        return "";
+    }
+
+
+
+
+
 }
