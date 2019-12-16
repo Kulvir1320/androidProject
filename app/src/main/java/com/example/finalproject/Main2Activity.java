@@ -135,10 +135,10 @@ public class Main2Activity extends AppCompatActivity {
 
            @Override
            public void onClick(View view) {
-               if (fname.getText().toString().isEmpty() & !lname.getText().toString().isEmpty() & birthyear.getText().toString().isEmpty()
-                       & monthlySalary.getText().toString().isEmpty() & occuptionRate.getText().toString().isEmpty() & eid.getText().toString().isEmpty()
-                       & employeeType.getSelectedItem().toString().isEmpty() & numbers.getText().toString().isEmpty() & carTypeE.getText().toString().isEmpty()
-               & vehicleModel.getText().toString().isEmpty() & plateN.getText().toString().isEmpty() & color.getSelectedItem().toString().isEmpty())
+               if (!fname.getText().toString().isEmpty() & !lname.getText().toString().isEmpty() & !birthyear.getText().toString().isEmpty()
+                       & !monthlySalary.getText().toString().isEmpty() & !occuptionRate.getText().toString().isEmpty() & !eid.getText().toString().isEmpty()
+                       & !employeeType.getSelectedItem().toString().isEmpty() & !numbers.getText().toString().isEmpty() & !carTypeE.getText().toString().isEmpty()
+               & !vehicleModel.getText().toString().isEmpty() & !plateN.getText().toString().isEmpty() & !color.getSelectedItem().toString().isEmpty())
                {
                    int id = vehicle.getCheckedRadioButtonId();
 
