@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(MainActivity.this,descriptionActivity.class);
+                
 
+                Intent intent = new Intent(MainActivity.this,descriptionActivity.class);
                 intent.putExtra("id",i);
                startActivity(intent);
             }
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String s) {
                 adapter.getFilter().filter(s);
+
                 return false;
             }
         });

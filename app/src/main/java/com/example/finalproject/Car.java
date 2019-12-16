@@ -11,7 +11,7 @@ public class Car extends Vehicle {
     public String details() {
 
 
-        String desc = super.details() + "motorcycle \n" + "-Model:" + super.getMake() +"\n"
+        String desc = super.details() + "car \n" + "-Model:" + super.getMake() +"\n"
                 +"-Plate:" + super.getPlate()+"\n" + "-Color:" + super.getColor() +"\n";
         desc += "-" + type;
         return desc;
