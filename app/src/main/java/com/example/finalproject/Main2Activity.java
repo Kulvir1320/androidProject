@@ -135,17 +135,18 @@ public class Main2Activity extends AppCompatActivity {
 
            @Override
            public void onClick(View view) {
-//               if (fname.getText().toString().isEmpty() & !lname.getText().toString().isEmpty() & birthyear.getText().toString().isEmpty()
-//                       & monthlySalary.getText().toString().isEmpty() & occuptionRate.getText().toString().isEmpty() & eid.getText().toString().isEmpty()
-//                       & employeeType.getSelectedItem().toString().isEmpty() & numbers.getText().toString().isEmpty()) {
+               if (fname.getText().toString().isEmpty() & !lname.getText().toString().isEmpty() & birthyear.getText().toString().isEmpty()
+                       & monthlySalary.getText().toString().isEmpty() & occuptionRate.getText().toString().isEmpty() & eid.getText().toString().isEmpty()
+                       & employeeType.getSelectedItem().toString().isEmpty() & numbers.getText().toString().isEmpty() & carTypeE.getText().toString().isEmpty()
+               & vehicleModel.getText().toString().isEmpty() & plateN.getText().toString().isEmpty() & color.getSelectedItem().toString().isEmpty())
+               {
                    int id = vehicle.getCheckedRadioButtonId();
 
                    switch (id) {
 
                        case R.id.radioButtonCar:
                            v = new Car(vehicleModel.getText().toString(), plateN.getText().toString(), color.getSelectedItem().toString(), carTypeE.getText().toString());
-                           System.out.println("car");
-                           Log.i("car", "onClick: car");
+
                            break;
                        case R.id.radioButtonMotorbike:
                            Boolean isSidecar = false;
@@ -163,8 +164,7 @@ public class Main2Activity extends AppCompatActivity {
                                    break;
                            }
                            v = new MotorBike(vehicleModel.getText().toString(), plateN.getText().toString(), color.getSelectedItem().toString(), isSidecar);
-                           System.out.println("motorBike");
-                           Log.i("motorbike", "onClick: motorbike");
+
                            break;
                        default:
                            break;
@@ -184,8 +184,7 @@ public class Main2Activity extends AppCompatActivity {
                                        Integer.parseInt(monthlySalary.getText().toString()), v, Integer.parseInt(numbers.getText().toString()));
 
                            }
-                           System.out.println("manager");
-                           Log.i("manager", "onClick: manager ");
+
                            break;
                        case "Programmer":
                            if (!occuptionRate.getText().toString().equals("")) {
@@ -199,8 +198,7 @@ public class Main2Activity extends AppCompatActivity {
                                        Integer.parseInt(monthlySalary.getText().toString()), v, Integer.parseInt(numbers.getText().toString()));
 
                            }
-                           System.out.println("programmer");
-                           Log.i("programmer", "onClick: programmer");
+
                            break;
                        case "Tester":
                            if (!occuptionRate.getText().toString().equals("")) {
@@ -211,9 +209,6 @@ public class Main2Activity extends AppCompatActivity {
                                e = new Tester(fname.getText().toString() + " " + lname.getText().toString(), Integer.parseInt(eid.getText().toString()), Integer.parseInt(birthyear.getText().toString()),
                                        Integer.parseInt(monthlySalary.getText().toString()), v, Integer.parseInt(numbers.getText().toString()));
                            }
-                           System.out.println("tester");
-                           Log.i("tester", "onClick: tester");
-
 
 
                            break;
@@ -221,11 +216,15 @@ public class Main2Activity extends AppCompatActivity {
                    }
 
                    Employee.allEmployees.add(e);
-                   Toast.makeText(Main2Activity.this, "Registration is successful.", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(Main2Activity.this, "Registration is successfull.", Toast.LENGTH_SHORT).show();
                    Intent intent = new Intent(Main2Activity.this, MainActivity.class);
                    startActivity(intent);
-                   // }
+
                }
+               else{
+                   Toast.makeText(Main2Activity.this, "fill your fields.", Toast.LENGTH_SHORT).show();
+               }
+           }
            });
 
     }}

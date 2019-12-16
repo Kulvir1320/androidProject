@@ -23,11 +23,9 @@ public class MainActivity extends AppCompatActivity {
         Button add= findViewById(R.id.addbtn);
 
         ArrayList<String> list = new ArrayList<>();
-        //Employee.allEmployees.size(
-        //for(int i = 0; i< 10; i++){
+
         for(int i =0; i<Employee.allEmployees.size(); i++){
            list.add(Employee.allEmployees.get(i).description());
-           //list.add(String.valueOf(i));
 
 
         }

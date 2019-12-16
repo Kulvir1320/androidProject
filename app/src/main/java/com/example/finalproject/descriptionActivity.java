@@ -16,10 +16,7 @@ public class descriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_description);
         TextView textView = findViewById(R.id.textview);
         ArrayList<String> list = new ArrayList<>();
-//        Intent intent = getIntent();
-//        int id = intent.getExtras().getInt("selected id");
-//
-//        textView.setText(Employee.employeeDetails.get(id).DetailDescription());
+
 
         Intent intent = getIntent();
         int i = intent.getExtras().getInt("id");
